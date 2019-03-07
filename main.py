@@ -6,6 +6,7 @@ import re
 import math
 import string
 import getpass
+import sys
 
 #range but better
 def range2(inputlist):
@@ -35,6 +36,8 @@ def darkness_envelops():
 		time.sleep(sleep_time)
 		sleep_time += time_to_add
 		time_to_add += 0.00000001
+
+turns = 0
 
 #exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
 exec(open('walmar.py').read())
