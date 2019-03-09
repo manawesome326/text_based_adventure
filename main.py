@@ -14,6 +14,8 @@ def range2(inputlist):
 
 deafened = False
 hearing_loss = 0
+DEBUG_fast_mode = True # DEBUG ONLYE
+digest = {"grudge":False}
 
 def print2(text, wait_time = 0.8, crystal_clear = False, mute_level = False):
 	global deafened
@@ -25,13 +27,17 @@ def print2(text, wait_time = 0.8, crystal_clear = False, mute_level = False):
 		print(text) 
 	else:
 		print(text)
-	time.sleep(wait_time)
+	if not DEBUG_fast_mode:
+		time.sleep(wait_time)
 
-def darkness_envelops():
+def darkness_envelops( white = False):
 	sleep_time = 0.0001
 	time_to_add = 0.000001
 	for i in range(1920):
-		print("\xe2", end='')
+		if white:
+			print(" ", end='')
+		else:
+			print("\u2588", end='')
 		sys.stdout.flush()
 		time.sleep(sleep_time)
 		sleep_time += time_to_add
@@ -39,7 +45,7 @@ def darkness_envelops():
 
 turns = 0
 
-#exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
+exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
 exec(open('walmar.py').read())
-
-
+exec(open('speaking_bit.py').read())
+exec(open('monsterbattleclosing.py').read())

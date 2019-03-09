@@ -71,6 +71,8 @@ def inventory():
 	print2("You're holding:")
 	for i in [x.name for x in inventory]:
 			print2(i, 0.15)
+def jump():
+	print2("You jump on the spot.")
 
 def print_help():
 	print2("This section plays like a normal text adventure game. Except, because I'm lazy, every command MUST be written as 'VERB NOUN', or just 'VERB' if no noun is relevant. Every verb is one word, but nouns can be longer. For a list of most of the verbs, do 'list'.")
@@ -224,7 +226,9 @@ def be_sensible(noun):
 		actual_noun = synonyms[noun]
 	except KeyError:
 		return(False)
-	if actual_noun.location == current_location or actual_noun.location == everywhere or actual_noun.location == hammerspace:
+	if str(type(actual_noun)) == "<class 'function'>":
+		return(False)
+	elif (actual_noun.location == current_location) or (actual_noun.location == everywhere) or (actual_noun.location == hammerspace):
 		return(actual_noun)
 	else:
 		return(False)
@@ -234,7 +238,7 @@ spooked = False #that's for the final aisle
 spooked_stage = -1
 books_read = [] #also for final aisle
 spooked_time = "E"
-spooky_messages = ["As you enter this aisle, you seem to hear footsteps from far away...", "The footsteps seem to be getting louder.", "You wonder if you're going to have to pay for all the stuff you're carrying.", "Even though you're not sure that makes sense based off the way this place works, you think the footsteps are coming right for you!", "You've only got a few seconds before the person making tose footsteps comes around the corner and you have to talk to them! Read something, quick!", "A store attendant walks into the aisle. You know they're a store attendant, because the black cloak they're wearing has an employee badge on it and the first thing they say to you is..."]
+spooky_messages = ["As you enter this aisle, you seem to hear footsteps from far away...", "The footsteps seem to be getting louder.", "You wonder if you're going to have to pay for all the stuff you're carrying.", "Even though you're not sure that makes sense based off the way this place works, you think the footsteps are coming right for you!", "You've only got a few seconds before the person making tose footsteps comes around the corner and you have to talk to them! Read something, quick!", "A store attendant walks into the aisle. You know they're a store attendant, because the hooded black cloak they're wearing has an employee badge on it and the first thing they say to you is..."]
 everywhere = "everywhere, at all."
 hammerspace = "your own inventory"
 book_aisle = Aisle("You're now in an aisle of books. Most seem unhelpful to you right now.", "You see books, lots of them. Most seem unhelpful. Though, some of them have bright yellow spines and a familliar logo... These include:", None)
@@ -272,6 +276,7 @@ synonyms = new_dictionary({("take", "grab", "purloin",):take,\
  ("examine", "x","read"):examine, \
  ("drop","remove",):drop, \
  ("help",):print_help, \
+ ("jump",):jump, \
  ("list",):print_commands, \
  ("look", "l",):look_around, \
  ("w","west",):west, \
@@ -295,7 +300,7 @@ synonyms = new_dictionary({("take", "grab", "purloin",):take,\
  ("medkits", "first aid kits", "medkit", "first aid kit"):three_medkits, \
  ("medicine", "pill container", "pills", "pill bottle", "medicine bottle", "medicine container", "container"):homeopathic_medicine, \
  ("license plate", "plate", "novelty license plate", "ISO 8601","license plates", "novelty license plates", "plates"):license_plate, \
- ("cloak", "strange white cloak", "white cloak", "jumper", "uniform",):cloak, \
+ ("cloak", "strange white cloak", "white cloak", "strange cloak", "clothes",):cloak, \
  ("children's toys", "children's toy", "child's toy", "child's toys", "bop-it", "toy", "toys"):bop_it, \
  })
 
@@ -349,9 +354,10 @@ while True:
 				break
 			spooked_time = time.time()
 print2('"Hi, how can I help you?"') 
-digest = {"books":books_read, "flagged":flagged, "pretzels eaten":(pretzels.location == "hell"), "medkits":(three_medkits in inventory), "chair":(chair in inventory)}
-print(digest)
-
+digest = {**{"books":books_read, "flagged":flagged, "pretzels eaten":(pretzels.location == "hell"), "medkits":(three_medkits in inventory), "chair":(chair in inventory)}, **digest}
+print(digest) #debug only
+input("Hit <ENTER> to continue")
+darkness_envelops()
 
 		
 

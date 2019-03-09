@@ -189,34 +189,34 @@ Billy = Monster("Billy", 68, (Moo, Fireball), """
      ||w----||   
      ||     ||   """, ["Billy moos", "Billy moos", "Billy stares straight into your soul", "\"moo\""], Billy_AI)#MAKE HEALTH 69 IN RELEASE
 
-Player = Monster("You", 69, (Fireball, Dance, Roll, Heal), """
+Player = Monster("You", 69, [Fireball, Dance, Roll, Heal], """
 o.o
  | 
 /\\ """, [], None) 
 
+
+time_to_beat = 4
 def player_turn():
 	global transfixed
+	global Player
 	try:
 		options_time = time.time()
 		triedattack = input("What attack shall you use next? You can use \"" + "\", \"".join([x.name for x in Player.attacks[:-1]]) + "\" or \"" + "".join([x.name for x in Player.attacks[-1:]]) + "\" ")
-		usedattack = globals()[triedattack]
-		if usedattack == Heal:
-			raise KeyError("oh no!")
-	except KeyError:
+		usedattack = [x for x in Player.attacks if x.name == triedattack][0]
+	except IndexError:
 		if triedattack == Heal.name:
 			usedattack = Heal
 		else:
 			usedattack = Distracted
 	new_time = time.time()
-	if new_time - options_time > 4:
-		print2("You took more than 4 seconds to choose, so you flounder the attack!")
+	if new_time - options_time > time_to_beat:
+		print2("You took more than " + str(time_to_beat) + " seconds to choose, so you flounder the attack!")
 		usedattack = Distracted
-
-	if not Player.status["frozen"]:
+	elif not Player.status["frozen"]:
 		usedattack.use(Player)  
 	else:
 		Player.status["Burning"] = False
-		if usedattack == Fireball:
+		if usedattack.damagetype == "Fire":
 			print2("The fireball unfreezes you!")
 			print2("Take another turn!")
 			Player.status["frozen"] = False
@@ -233,6 +233,7 @@ def player_turn():
 	if dances < 0:
 		dances /= 2
 
+burn_damage = 10
 def enemy_turn():
 	global transfixed
 	usedattack = fighter.selectmove()
@@ -241,8 +242,8 @@ def enemy_turn():
 	else:
 		transfixed = False
 	if fighter.status["burning"]:
-		fighter.health -= 10
-		print2("Your opponent takes 10 damage from your flames!")
+		fighter.health -= burn_damage
+		print2("Your opponent takes " + str(burn_damage) +" damage from your flames!")
 	print2(fighter.chat())
 
 
@@ -271,11 +272,11 @@ def turn_loop():
 		print2("You now have "+ str(Player.health) + " health left. " + fighter.name + " has " + str(fighter.health))
 		turns += 1
 		hearing_loss -= 0.3
-	if fighter.health <= 0:
+	if Player.health <= 0:
+		return(False)
+	else:
 		wins += 1
 		return(True)
-	else:
-		return(False)
 
 
 print2("You're in the center of a vast colleseum. You're not sure why, or how, but you are, and you're determined to win.", 4)
@@ -302,7 +303,7 @@ if victory:
 		print2("""The thing is, though, that you're not totally sure what they were actually cheering. At the time it seemed obvious to you that it was your name, but when asked about it later you weren't able to actually say for sure what it was. When members of the crowd were asked, roughly half of them had no idea at all, while the other half had varying guesses based off what they thought everybody else was cheering. These guesses varied from "Fred", to "Rincewind", to "Gertrude". None of the guesses seemed like very good names at all, and regardless of whether or not they were right you didn't like the selection. One member of the crowd said that he actually read the program guide, which said that your name was actually \""""+ getpass.getuser()+"""\", a fact which you vehemently denied. Wait, you don't know you're going to do that yet. Dammit!""")
 		print2("...", 2)
 		print2("Point is, at this point Death comes along and he's gonna kill you anyway, because you weren't actually supposed to be able to win that.", 3)
-		with_a_grudge = True
+		digest["grudge"] = True
 if wins < 2:
 	print2("On the edge of death, your hearing clears...",2)
 	deafened = False
