@@ -102,7 +102,7 @@ def look_around():
 		for i in [x.name for x in items_here]:
 			print2(i, 0.15)
 		if current_location == book_aisle:
-			print2("Please just refer too books by their two word title, I'm going to get confused otherwise.")
+			print2("Please just refer too books by their two word title, I'm going to get confused otherwise.", 1.2)
 score = 0
 flagged = False
 
@@ -199,7 +199,7 @@ def move(direction):
 	global spooked_stage
 	global spooked_time
 	opposites = {"n":"s", "e":"w", "s":"n", "w":"e", "wenis":"hell no"}
-	print2("You wander the shelves...", 3)
+	print2("You wander the shelves...", 2)
 	if opposites[last_direction] == direction:
 		print2("The reality of fabric seems to warp around you... looks like you can't get back to an area you've been to before.", 3)
 	current_location = current_location.next_place
@@ -207,7 +207,7 @@ def move(direction):
 		print2("The strange geometry of this place means you bump straight into the person making the footsteps! They appear to be a store clerk, though not just because their dark, hooded cloak has an employee badge on it. No, it's because the first thing they say to you is...", 3)
 		spooked_stage = 6
 		return(True)
-	print2(current_location.opening, 1.1)
+	print2(current_location.opening, 2)
 	last_direction = direction
 	if current_location == book_aisle:
 		spooked = True
@@ -355,7 +355,7 @@ while True:
 			spooked_time = time.time()
 print2('"Hi, how can I help you?"') 
 digest = {**{"books":books_read, "flagged":flagged, "pretzels eaten":(pretzels.location == "hell"), "medkits":(three_medkits in inventory), "chair":(chair in inventory)}, **digest}
-print(digest) #debug only
+#print(digest) #debug only
 input("Hit <ENTER> to continue")
 darkness_envelops()
 

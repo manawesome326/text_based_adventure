@@ -301,35 +301,36 @@ if victory:
 		deafened = False
 		print2("The crowd begins to cheer your name in excitement!")
 		print2("""The thing is, though, that you're not totally sure what they were actually cheering. At the time it seemed obvious to you that it was your name, but when asked about it later you weren't able to actually say for sure what it was. When members of the crowd were asked, roughly half of them had no idea at all, while the other half had varying guesses based off what they thought everybody else was cheering. These guesses varied from "Fred", to "Rincewind", to "Gertrude". None of the guesses seemed like very good names at all, and regardless of whether or not they were right you didn't like the selection. One member of the crowd said that he actually read the program guide, which said that your name was actually \""""+ getpass.getuser()+"""\", a fact which you vehemently denied. Wait, you don't know you're going to do that yet. Dammit!""")
-		print2("...", 2)
+		print2("...", 5)
 		print2("Point is, at this point Death comes along and he's gonna kill you anyway, because you weren't actually supposed to be able to win that.", 3)
 		digest["grudge"] = True
 if wins < 2:
 	print2("On the edge of death, your hearing clears...",2)
 	deafened = False
 	print2("You see a spectre of Death before you...",2)
-print2("""            ___          
-        /   \\\\        
-   /\\\\ | . . \\\\       
- ////\\\\|     ||       
-////   \\\\ ___//\\       
-///      \\\\      \\      
-///       |\\\\      |     
+print2("""          
+             ___          
+            /   \\\\        
+       /\\\\ | . . \\\\       
+     ////\\\\|     ||       
+   ////   \\\\ ___//\\       
+  ///      \\\\      \\      
+ ///       |\\\\      |     
 //         | \\\\  \\   \\    
 /          |  \\\\  \\   \\   
-       |   \\\\ /   /   
-       |    \\/   /    
-       |     \\\\/|     
-       |      \\\\|     
-       |       \\\\     
-       |        |     
-       |_________\\ """, 3)
-print2("Wait, that's the wrong one, this one actually looks like pretty cool.")
-print2("Tʜᴀɴᴋꜱ, I ɢᴜᴇꜱꜱ?")
+           |   \\\\ /   /   
+           |    \\/   /    
+           |     \\\\/|     
+           |      \\\\|     
+           |       \\\\     
+           |        |     
+           |_________\\    """, 3)
+print2("Wait, that's the wrong one, this one actually looks like pretty cool.", 2)
+print2("Tʜᴀɴᴋꜱ, I ɢᴜᴇꜱꜱ?", 2)
 print2("Wait, you don't have any lines until chapter --", 2)
-print2("Forget it. You know what to do!")
-print2("Sᴏʀʀʏ ᴀʙᴏᴜᴛ ᴛʜɪꜱ")
-print2("Death swings the scythe towards you, and everything goes dark...")
+print2("Forget it. You know what to do!", 2)
+print2("Sᴏʀʀʏ ᴀʙᴏᴜᴛ ᴛʜɪꜱ", 2)
+print2("Death swings the scythe towards you, and everything goes dark...", 2)
 input("Hit <ENTER> to continue")
 darkness_envelops()
 

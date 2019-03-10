@@ -14,7 +14,7 @@ def range2(inputlist):
 
 deafened = False
 hearing_loss = 0
-DEBUG_fast_mode = True # DEBUG ONLYE
+DEBUG_fast_mode = False # DEBUG ONLYE
 digest = {"grudge":False}
 
 def print2(text, wait_time = 0.8, crystal_clear = False, mute_level = False):
