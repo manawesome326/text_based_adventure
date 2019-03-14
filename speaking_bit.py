@@ -47,7 +47,10 @@ def are_you_death_funct():
 	print2('"No, I\'m not him, I just work for him, and he prefers the name \'The Grim Reaper\', or just \'Grim\' if you\'re cool, like me."', 3.6)
 	print2('"...I\'m still working on my impression"')
 	available_options.append(whats_death_like)
-	#available_options.append(why_the_outfit)
+	available_options.append(why_the_outfit)
+
+def why_the_outfit_funct():
+	print2('"That\'s our uniform. It\'s practical, and also looks really cool."', 2)
 
 def where_am_i_funct():
 	global available_options
@@ -78,18 +81,29 @@ def ate_loose_pretzels_funct():
 def whats_death_like_funct():
 	global available_options
 	print2('"He\'s pretty cool, actually. Very hands off, lets us do our job easier."', 2)
-	#available_options.append(what_you_do)
+	available_options.append(what_you_do)
+
+def what_you_do():
+	print2('"Lead stray souls to the right place, battle escaped demons, clean up anything that breaks... the normal stuff department store workers do, I guess!”', 4)
 
 def scouted_an_aisle_funct():
 	global available_options
 	print2('"Oh hey, that was you. Nice job. Once we get this mess sorted out, maybe put in a promotion request!"', 3)
 	print2("That wasn't an answer, but you get the feeling asking again would make you look like a bit of an idiot.",3)
-	#available_options.append(promotion_request)
-	#available_options.append(what_mess)
+	available_options.append(promotion_request)
+	available_options.append(what_mess)
 
 def whys_it_walmart_funct():
 	datetime_nonsense = (datetime(1,1,1) + timedelta(seconds=(time.time() -digest["entry time"])))
 	print2('"Don\'t ask me. It didn\'t look like one ' + str(datetime_nonsense.minute) + ' minutes and ' + str(datetime_nonsense.second) + ' seconds ago."', 3)
+
+def what_mess_funct():
+	time.sleep(2)
+	print2('"...I\'ll explain later"', 2)
+
+def promotion_request_funct():
+	print2('"When you\'re ready."',2)
+	print2("\nWell that was vague.", 2)
 
 def how_to_leave_funct():
 	print2("You're getting sick of all this dialogue, aren't you? Nevermind all the effort I put into it. Fine, just skip to the cool battle scene.\n", 4)
@@ -103,12 +117,16 @@ def how_to_leave_funct():
 	print2("And then everything goes dark.")
 
 are_you_death = Question("Death?", are_you_death_funct)
+why_the_outfit = Question("If you're not death, why the outfit?", why_the_outfit_funct)
 where_am_i = Question("Where am I?", where_am_i_funct)
 how_to_pay = Question("How do I pay for all this stuff I'm carrying?", how_to_pay_funct)
 ate_loose_pretzels = Question("What was up with those loose pretzels earlier?", ate_loose_pretzels_funct)
 whats_death_like = Question("What's working for the Grim Reaper like?", whats_death_like_funct)
+what_you_do = Question("What actually is your job?", what_you_do_funct)
 scouted_an_aisle = Question("What was up with the 'scouted an aisle for 50 points' thing from earlier?", scouted_an_aisle_funct)
 whys_it_walmart = Question("Why does purgatory look like a department store?", whys_it_walmart_funct)
+what_mess = Question("What mess?", what_mess_funct)
+promotion_request = Question("Promotion request?", promotion_request_funct)
 
 how_to_leave = Question("So how do I get out of here?", how_to_leave_funct)
 
@@ -139,5 +157,5 @@ while True:
 	turns += 1
 	if turns - turns_at_dialog_start == 6:
 		available_options.append(how_to_leave)
-
+input("Hit <ENTER> to continue")
 darkness_envelops()
