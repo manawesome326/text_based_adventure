@@ -312,7 +312,7 @@ print2("Odd. When you black out, you usually seem to wake up in an alley somewhe
 print2("<type 'help' if you need help with this bit>", 2)
 print2(childs_toys_aisle.opening)
 current_location = childs_toys_aisle
-
+digest["entry time"] = time.time()
 while True:
 	users_input = true_input().lower()
 	if users_input == "take chair":
@@ -354,7 +354,7 @@ while True:
 				break
 			spooked_time = time.time()
 print2('"Hi, how can I help you?"') 
-digest = {**{"books":books_read, "flagged":flagged, "pretzels eaten":(pretzels.location == "hell"), "medkits":(three_medkits in inventory), "chair":(chair in inventory)}, **digest}
+digest = {**{"books":books_read, "flagged":flagged, "pretzels eaten":(pretzels.location == "hell"), "medkits":(three_medkits in inventory), "chair":(chair in inventory), "stuff":(len(inventory)>1)}, **digest}
 #print(digest) #debug only
 input("Hit <ENTER> to continue")
 darkness_envelops()

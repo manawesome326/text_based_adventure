@@ -325,6 +325,7 @@ print2("""
            |       \\\\     
            |        |     
            |_________\\    """, 3)
+#from Dustin Slater
 print2("Wait, that's the wrong one, this one actually looks like pretty cool.", 2)
 print2("Tʜᴀɴᴋꜱ, I ɢᴜᴇꜱꜱ?", 2)
 print2("Wait, you don't have any lines until chapter --", 2)

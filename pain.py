@@ -7,6 +7,8 @@ import math
 import string
 import getpass
 import sys
+from datetime import datetime, timedelta
+#Am I importing enough crap?
 
 #range but better
 def range2(inputlist):
@@ -45,7 +47,7 @@ def darkness_envelops( white = False):
 
 turns = 0
 
-exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
-exec(open('walmar.py').read())
+#exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
+#exec(open('walmar.py').read())
 exec(open('speaking_bit.py').read())
 exec(open('monsterbattleclosing.py').read())
