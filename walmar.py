@@ -297,7 +297,7 @@ synonyms = new_dictionary({("take", "grab", "purloin",):take,\
  ("dance fighting",):dance_fighting_for_dummies, \
  ("pretzels", "junk food","food"):pretzels, \
  ("poison", "poisonicine", "pink liquid", "bottle of poison"):poisonicine, \
- ("medkits", "first aid kits", "medkit", "first aid kit"):three_medkits, \
+ ("medkits", "first aid kits", "medkit", "first aid kit", "medpacks", "medpack"):three_medkits, \
  ("medicine", "pill container", "pills", "pill bottle", "medicine bottle", "medicine container", "container"):homeopathic_medicine, \
  ("license plate", "plate", "novelty license plate", "ISO 8601","license plates", "novelty license plates", "plates"):license_plate, \
  ("cloak", "strange white cloak", "white cloak", "strange cloak", "clothes",):cloak, \

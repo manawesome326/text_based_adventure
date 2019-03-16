@@ -1,7 +1,7 @@
 #!/bin/python3
 
 #DEBUG ONLY
-digest = {"flagged":True, "pretzels eaten":True, "stuff":True, "entry time":time.time()}
+#digest = {"flagged":True, "pretzels eaten":True, "stuff":True, "entry time":time.time(), "grudge":True}
 #DEBUG ONLY
 
 
@@ -54,11 +54,15 @@ def why_the_outfit_funct():
 
 def where_am_i_funct():
 	global available_options
+	global free_options
 	print2("An obvious question to ask.\n", 2)
 	print2('"You\'re in purgatory, but only, uh, kind of."', 2)
 	print2('"Kind of?", you prompt.', 2)
 	print2('"Honestly, this place is a little hard to describe properly. I\'ll explain later, if we have time."', 2.5)
 	available_options.append(whys_it_walmart)
+	if digest["stuff"]:
+		free_options.append(how_to_pay)
+
 
 def how_to_pay_funct():
 	global available_options
@@ -83,8 +87,11 @@ def whats_death_like_funct():
 	print2('"He\'s pretty cool, actually. Very hands off, lets us do our job easier."', 2)
 	available_options.append(what_you_do)
 
-def what_you_do():
+def what_you_do_funct():
+	global available_options
 	print2('"Lead stray souls to the right place, battle escaped demons, clean up anything that breaks... the normal stuff department store workers do, I guess!”', 4)
+	available_options.append(where_be_demons)
+	available_options.append(stray_souls)
 
 def scouted_an_aisle_funct():
 	global available_options
@@ -115,6 +122,20 @@ def how_to_leave_funct():
 	print2("The ensuing conversation didn't make a lot of sense to you.", 2)
 	print2('"Well that was good timing. Grim\'s got a job for you. Says that it\'s "very self-explanatory". Any second now you should--"', 4)
 	print2("And then everything goes dark.")
+	#kills this section
+
+def stray_souls_funct():
+	time.sleep(0.2)
+	print2('"Sure! I\'ll find the right place, eventually."', 2)
+
+def where_be_demons_funct():
+	time.sleep(0.2)
+	print2('"Not here. They never come here, it\'s too boring and there\'s nobody to torture."', 2)
+
+def why_death_mean_funct():
+	time.sleep(0.2)
+	print2('"I haven\'t a clue what you\'re talking about."', 2)
+	print2("What, you wanted the game to end there?",2)
 
 are_you_death = Question("Death?", are_you_death_funct)
 why_the_outfit = Question("If you're not death, why the outfit?", why_the_outfit_funct)
@@ -127,17 +148,20 @@ scouted_an_aisle = Question("What was up with the 'scouted an aisle for 50 point
 whys_it_walmart = Question("Why does purgatory look like a department store?", whys_it_walmart_funct)
 what_mess = Question("What mess?", what_mess_funct)
 promotion_request = Question("Promotion request?", promotion_request_funct)
-
+stray_souls = Question("Am I a stray soul?", stray_souls_funct)
+where_be_demons = Question("Demons? Where‽", where_be_demons_funct)
 how_to_leave = Question("So how do I get out of here?", how_to_leave_funct)
+why_death_mean = Question("Why did the Grim Reaper kill me even though I actually survived that thing earlier", why_death_mean_funct)
+
 
 free_options = []
 available_options = [are_you_death, where_am_i]
-if digest["stuff"]:
-	free_options.append(how_to_pay)
 if digest["pretzels eaten"]:
 	free_options.append(ate_loose_pretzels)
 if digest["flagged"]:
 	free_options.append(scouted_an_aisle)
+if digest["grudge"]:
+	free_options.append(why_death_mean)
 
 print2("What follows is a highly engaging dialogue sequence.",1.5)
 print2("(just letting you know)", 1.5)

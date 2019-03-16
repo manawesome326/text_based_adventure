@@ -1,6 +1,6 @@
 #!/bin/python3
 #debug - remove this
-DEBUG_fast_mode = False
+#DEBUG_fast_mode = False
 #digest = {"books":[greater_fireball_for_dummies, dance_fighting_for_dummies, time_management_for_dummies], "flagged":True, "pretzels eaten":False, "medkits":True, "chair":True}
 
 #redefine everything that needs to be
@@ -61,9 +61,9 @@ if victory:
 		print2("Your hearing clears...", 2)
 		print2("The crowd starts to cheer your name...",2)
 		if digest["grudge"]:
-			print2("Death appears before you. This time, they're actually supposed to.", 2)
+			print2("The Grim appears before you. This time, they're actually supposed to.", 2)
 		else:
-			print2("Death appears before you. This time, you're not surprised.",2)
+			print2("The Grim appears before you. This time, you're not surprised.",2)
 		print2("""      
              ___          
             /   \\\\        

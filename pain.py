@@ -45,9 +45,9 @@ def darkness_envelops( white = False):
 		sleep_time += time_to_add
 		time_to_add += 0.00000001
 
-turns = 0
+turns = 0 
 
-#exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
-#exec(open('walmar.py').read())
+exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
+exec(open('walmar.py').read())
 exec(open('speaking_bit.py').read())
 exec(open('monsterbattleclosing.py').read())
