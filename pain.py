@@ -49,7 +49,7 @@ def darkness_envelops( white = False):
 
 turns = 0 
 
-exec(open('monsterbattleopening.py').read()) # is this a good idea? Well, you can't stop me.
-exec(open('walmar.py').read())
-exec(open('speaking_bit.py').read())
-exec(open('monsterbattleclosing.py').read())
+exec(open('monsterbattleopening.py', encoding='utf8').read()) # is this a good idea? Well, you can't stop me.
+exec(open('walmar.py', encoding='utf8').read())
+exec(open('speaking_bit.py', encoding='utf8').read())
+exec(open('monsterbattleclosing.py', encoding='utf8').read())
