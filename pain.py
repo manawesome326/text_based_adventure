@@ -36,7 +36,9 @@ def print2(text, wait_time = 0.8, crystal_clear = False, mute_level = False):
 def darkness_envelops( white = False):
 	sleep_time = 0.0001
 	time_to_add = 0.000001
-	for i in range(1920):
+	time_to_add_to_add = 0.000000009
+	time_at_start = math.floor(time.time())
+	for i in range(1920): #change to 1920
 		if white:
 			print(" ", end='')
 		else:
@@ -44,7 +46,11 @@ def darkness_envelops( white = False):
 		sys.stdout.flush()
 		time.sleep(sleep_time)
 		sleep_time += time_to_add
-		time_to_add += 0.000000009
+		time_to_add += time_to_add_to_add
+		if math.floor(time.time())-time_at_start == 16:
+			sleep_time = 0.00005
+			time_to_add = 0.0000005
+			time_to_add_to_add = 0.000000002
 	print('\n')
 
 turns = 0 
