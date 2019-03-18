@@ -17,7 +17,7 @@ def range2(inputlist):
 deafened = False
 hearing_loss = 0
 DEBUG_fast_mode = False # DEBUG ONLYE
-digest = {"grudge":False}
+digest = {"grudge":False} #why is this here?
 
 def print2(text, wait_time = 0.8, crystal_clear = False, mute_level = False):
 	global deafened
@@ -43,7 +43,8 @@ def darkness_envelops( white = False):
 		sys.stdout.flush()
 		time.sleep(sleep_time)
 		sleep_time += time_to_add
-		time_to_add += 0.00000001
+		time_to_add += 0.000000009
+	print('\n')
 
 turns = 0 
 

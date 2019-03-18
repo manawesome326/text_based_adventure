@@ -292,7 +292,7 @@ if victory:
 	print2("Here's who you're up against:")
 	wild_magic /= 3
 	wild_magic = math.floor(wild_magic)
-	hearing_loss -= 1.3
+	hearing_loss -= 1.5
 	fighter = fighter_order[wins]
 	print2(fighter.art)
 	victory = turn_loop()
