@@ -201,7 +201,7 @@ def player_turn():
 	global Player
 	try:
 		options_time = time.time()
-		triedattack = input("What attack shall you use next? You can use \"" + "\", \"".join([x.name for x in Player.attacks[:-1]]) + "\" or \"" + "".join([x.name for x in Player.attacks[-1:]]) + "\" ")
+		triedattack = input2("What attack shall you use next? You can use \"" + "\", \"".join([x.name for x in Player.attacks[:-1]]) + "\" or \"" + "".join([x.name for x in Player.attacks[-1:]]) + "\" ")
 		usedattack = [x for x in Player.attacks if x.name == triedattack][0]
 	except IndexError:
 		if triedattack == Heal.name:
@@ -332,7 +332,7 @@ print2("Wait, you don't have any lines until chapter --", 2)
 print2("Forget it. You know what to do!", 2)
 print2("Sᴏʀʀʏ ᴀʙᴏᴜᴛ ᴛʜɪꜱ", 2)
 print2("Death swings the scythe towards you, and everything goes dark...", 2)
-input("Hit <ENTER> to continue")
+input2("Hit <ENTER> to continue")
 darkness_envelops()
 
 

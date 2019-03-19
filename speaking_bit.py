@@ -15,7 +15,7 @@ def make_a_choice(options):
 		i += 1
 	while True:
 		try:
-			_decision = input(">> ")
+			_decision = input2(">> ")
 			return(options[int(_decision)-1])
 		except (IndexError, ValueError):
 			print2("<please pick a number from 1 to " + str(len(options)) + ">")

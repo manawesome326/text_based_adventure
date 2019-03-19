@@ -2,7 +2,7 @@
 
 
 def true_input():
-	return input("> ")
+	return input2("> ")
 
 
 allitems = []
@@ -356,7 +356,7 @@ while True:
 print2('"Hi, how can I help you?"') 
 digest = {**{"books":books_read, "flagged":flagged, "pretzels eaten":(pretzels.location == "hell"), "medkits":(three_medkits in inventory), "chair":(chair in inventory), "stuff":(len(inventory)>1)}, **digest}
 #print(digest) #debug only
-input("Hit <ENTER> to continue")
+input2("Hit <ENTER> to continue")
 darkness_envelops()
 
 		

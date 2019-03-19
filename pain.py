@@ -14,6 +14,8 @@ from datetime import datetime, timedelta
 #range but better
 def range2(inputlist):
 	return range(inputlist[0], inputlist[1]+1)
+def input2(message):
+	return(input(message).strip())
 
 deafened = False
 hearing_loss = 0
